@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="./icon.png" type="image/x-icon">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>KeyGen</title>
+</head>
+
+<body>
+    <div class="progress-container">
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
+    <header>
+        <div>
+            <a href="#" id="menu" data-target="slide-out" class="sidenav-trigger show-on-large"><i
+                    class="material-icons" style="font-size: 40px;">menu</i></a>
+        </div>
+        <div><img src="./node.png" alt="Node" height="40px"></div>
+    </header>
+    <hr>
+
+    <!-- Create APi Key Gen -->
+    <ul id="slide-out" class="sidenav">
+        <li>
+            <div class="heading center-align" style="margin-top: 5%;">
+                API KeyGen
+            </div>
+            <hr>
+        </li>
+        <li>
+            <div class="info">
+                <h5>API Key Generator</h5>
+            </div>
+        </li>
+        <li>
+            <div>
+                <div class="input-field">
+                    <input id="appID" type="text" class="validate">
+                    <label for="appID">App ID</label>
+                    <span class="helper-text" data-error="App ID Not Found!" data-success=""></span>
+                </div>
+                <div class="input-field">
+                    <input id="genPassword" type="password" class="validate">
+                    <label for="genPassword">Password</label>
+                    <span class="helper-text" data-error="Password Does not Match!" data-success=""></span>
+                </div>
+                <div class="input-field right-align">
+                    <p>
+                        <label>
+                            <input type="checkbox" id="showGenP" />
+                            <span>Show Password</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="input-field right-align">
+                    <button class="btn waves-effect waves-light blue" type="submit" id="keyGenBtn">Generate Key
+                        <i class="material-icons right">send</i>
+                    </button>
+
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <div class="info">
+        <div style="flex:1">
+            <div class="heading blue-text">
+                API KeyGen
+            </div>
+            <div class="txt">
+                <h5>Automate API Keys For your Node Server</h5>
+                <p>
+                    Preventing the unauthorized usage of an API is a very cruicial aspect of API development.
+                    <br>
+                    Creating and managing your own API Keys can get very labour-intensive and tiresome.
+                    <br>
+                    Key Gen generates and maintains your API Keys along with an NPM Module to Authenticate your APIs.
+                </p>
+            </div>
+        </div>
+        <div class="hidden">
+            <img src="./icon.png" alt="ICON" height="200px">
+        </div>
+    </div>
+    <div class="steps">
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header ">
+                    <h6><i class="material-icons">cloud_upload</i>Register Your App</h6>
+                </div>
+                <div class="collapsible-body"><span>To start using the API Key Gen, You must register your App Down
+                        Below <br> An <kbd>App ID</kbd> will be created and sent to your registered E-mail ID</span>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header ">
+                    <h6> <i class="material-icons">rss_feed</i>Create API Keys</h6>
+                </div>
+                <div class="collapsible-body"><span>
+                        Once you have an App ID, You can start generating your <span class="showCreator">API Keys</span>
+                        and using them with the KeyGen
+                        NPM Package in your APIs
+                        <br>
+                        Created API Keys will be Sent to the Registered E-Mail Address
+                    </span></div>
+            </li>
+        </ul>
+    </div>
+    <div class="form">
+        <div class="heading blue-text">
+            Register App
+        </div>
+        <div id="badge">
+            <span class="new badge">App Registered Successfully</span>
+        </div>
+        <hr>
+        <div class="input-field">
+            <input id="appName" type="text" class="validate">
+            <label for="appName">App Name</label>
+            <span class="helper-text" data-error="This Name is Already taken" data-success="">
+            </span>
+        </div>
+        <div class="input-field">
+            <input id="devEmail" type="text" class="validate">
+            <label for="devEmail">Developer Email</label>
+            <span class="helper-text" data-error="Enter a valid Email ID" data-success=""></span>
+        </div>
+        <div class="input-field">
+            <input id="password" type="password">
+            <label for="password">Password</label>
+            <span class="helper-text" data-error="Password must contain atleast 6 Characters" data-success=""></span>
+        </div>
+        <div class="input-field right-align">
+            <p>
+                <label>
+                    <input type="checkbox" id="showP" />
+                    <span>Show Password</span>
+                </label>
+            </p>
+        </div>
+        <div class="input-field right-align">
+            <button class="btn waves-effect waves-light blue" type="submit" id="registerbtn">Register App
+                <i class="material-icons right">send</i>
+            </button>
+
+        </div>
+    </div>
+
+
+    <div class="fixed">
+
+        <a class="btn-floating btn-large waves-effect waves-light red sidenav-trigger pulse" href="#" id="fixed"
+            data-target="slide-out"><i class="material-icons">menu</i></a>
+
+    </div>
+
+
+    <footer class="page-footer blue" style="margin-top: 100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text heading">API KeyGen</h5>
+                    <p class="grey-text text-lighten-4">Github Repository, NPM Documentation and other
+                        Links </p>
+                    <p>
+
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text" style="text-decoration: underline;">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Github Repo</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">NPM Docs</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Github Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2021 MIT License
+                <a class="grey-text text-lighten-4 right showFixed" href="#!">Under Development</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Tap Target Structure -->
+    <div class="tap-target blue" data-target="menu">
+
+    </div>
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+        $(document).ready(function () {
+            $('.tap-target').tapTarget();
+        });
+        $('.showCreator').on('click', () => {
+            window.scrollTo(0, 0);
+            $('.tap-target').tapTarget('open');
+
+        })
+        $(document).ready(function () {
+            $('.collapsible').collapsible();
+        });
+    </script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
