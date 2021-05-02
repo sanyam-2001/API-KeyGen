@@ -17,7 +17,7 @@ mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true, useCrea
 const app = express();
 
 //Middlewares
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'Public')))
 
 app.use(express.json());
 app.use(function (req, res, next) {
