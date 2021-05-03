@@ -4,7 +4,7 @@ const sendMail = (email, subject, body) => {
         service: 'gmail',
         auth: {
             user: 'apikeygennpm@gmail.com',
-            pass: 'fovjwunveuunubyt'
+            pass: 'pineconegingerbread'
         }
     });
     const mailOptions = {
