@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const appModel = require('./Schemas/appSchema');
 const path = require('path')
-const sendMail = require('./mailer')
 const createKey = require('./creator')
 const keyModel = require('./Schemas/keySchema')
 const URI = "mongodb+srv://Sanyam11:Sanyam11@keygen.scqjt.mongodb.net/APIGen?retryWrites=true&w=majority";
@@ -42,8 +41,6 @@ app.post('/newApp', (req, res) => {
             }
         }
         else {
-            console.log('Success')
-            sendMail(req.body.devEmail, `${req.body.appName} is registered as an App with ID: ${resObj._id}`, `<h1>App registered</h1><br><hr><br><p>Your app(${req.body.appName}) is now registered with us with app ID <b>${resObj._id}.</b></p><hr><p>Please Head over to Our Website to Create New API Keys.</p>`)
             res.json({ success: true, code: 200, message: resObj._id })
         }
     })
@@ -65,7 +62,6 @@ app.get('/generateKey/:ID/:password', (req, res) => {
                         newKeyModel.save((err, resObj) => {
                             if (err) return console.error(err);
                             else {
-                                sendMail(result.devEmail, `New Key Created for App: ${result.appName}`, `<h1>New Key Created for App${result.appName}</h1><hr><p>Your Key for App ID <b>${resObj.appID}</b> is saved as <b>${newKey}</b></p> <br><p>You Can now Use this Key for your Project using our Npm Tool</p><hr>`)
                                 res.json({ success: true, message: "Key Created", key: newKey })
                             }
                         })

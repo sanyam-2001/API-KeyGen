@@ -1,4 +1,16 @@
-console.log(M)
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+
 $("#showP").on('change', () => {
     if ($('#password').attr('type') === "password") {
         $('#password').attr('type', 'text');
@@ -78,6 +90,9 @@ $('#registerbtn').on('click', () => {
                 $('#password').val("");
                 $('#devEmail').val("");
                 if (result.success) {
+                    console.log(result)
+                    download(`AppID.txt`, result.message);
+
                     M.toast({ html: 'App Registered!' })
                 }
                 else {
@@ -119,11 +134,12 @@ $('#keyGenBtn').on('click', () => {
             .then(res => res.json())
             .then(dat => {
                 $('.progress-container').fadeOut()
-                $('#appID').val() = ""
-                $('#genPassword').val() = "";
+                $('#appID').val("")
+                $('#genPassword').val("");
                 if (dat.success) {
+                    download(`Key(${appID})`, dat.key);
                     M.toast({ html: 'Key Created!' })
-                    M.toast({ html: 'Check Your Registered Email!' })
+                    M.toast({ html: 'Check the Downloads Folder' })
                 }
                 else {
                     M.toast({ html: 'Invalid Credentials!' })
