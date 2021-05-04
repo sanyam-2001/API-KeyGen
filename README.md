@@ -20,9 +20,9 @@ The Portal  at [https://api-keygen.herokuapp.com/](https://api-keygen.herokuapp.
 > You can Create New API Keys from the Portal itself using your App ID and Password. A New Key Will also Be downloaded as a text File.
 - Now its Time to Use the CLI tool
  #### Installation
- `const  authenticator = require('api-keygen-npmcli')`
+ ```npm install api-keygen-npmcli```
  #### Usage
- `const authenticator = require('api-keygen-npmcli');`
+ ```const authenticator = require('api-keygen-npmcli');```
  Authenticator is a Async Function that requires an AppID and API Key for validation. It returns a `Promise { <pending> }`. It can be Easily Resolved into a Boolean Value.
  #### Example
  For example, a route in your API Looks Like
