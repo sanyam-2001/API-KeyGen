@@ -173,7 +173,7 @@ $('#managebtn').on('click', () => {
     }
     else {
         M.toast({ html: "Request processed!" })
-        fetch(`http://localhost:7000/manage/${email}/${password}`)
+        fetch(`/manage/${email}/${password}`)
             .then(res => res.json())
             .then(data => {
                 $('.progress-container').fadeOut()
