@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="../icon.png" type="image/x-icon">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./manage.css">
+    <title>Key Management</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="#" id="menu" data-target="slide-out" class="sidenav-trigger show-on-large"><i
+                    class="material-icons" style="font-size: 40px;">home</i></a>
+        </div>
+        <div><img src="../node.png" alt="Node" height="40px"></div>
+    </header>
+    <hr>
+    <div class="heading blue-text w-80">
+        KeyGen Manager
+    </div>
+
+    <div class="w-80 txt">
+        <h5>Add and Remove your API Keys for your App</h5>
+        <p>
+            The only place to recover your API keys when you inevitably lose them <br>
+            Add New or Delete existing API Keys seamlessly <br>
+            <i>These funtionalities will be integrated with the <kbd>api-keygen-npmcli</kbd> module in the near
+                future</i>
+        </p>
+        <hr>
+    </div>
+    <div class="heading semi blue-text w-80">
+        App Details
+        <hr>
+    </div>
+    <div class="w-80">
+        <div class="flex appDetails">
+            <div class="crumb blue flex white-text"> <i class="material-icons">apps</i> <span
+                    id="appname">TestApp</span>
+            </div>
+            <div class="crumb  red lighten-3 flex"><i class="material-icons">fingerprint</i><span
+                    id="appid">609017052f98530015ebe3ac</span></div>
+            <div class="crumb green flex white-text"><i class="material-icons">mail</i><span
+                    id="email">sanyambhaskar5@gmail.com</span>
+            </div>
+            <div class="crumb yellow flex"> <i class="material-icons">layers</i> <span id="count">5</span></div>
+        </div>
+    </div>
+    <div class="heading semi blue-text w-80">
+        Key Manager
+        <hr>
+    </div>
+    <div class="addKey w-80">
+        <button class="btn waves-effect waves-light red pulse" type="submit" id="addnewkey">Add New Key
+            <i class="material-icons right">add</i>
+        </button>
+    </div>
+
+    <div class="w-80 mainContainer">
+
+    </div>
+    <footer class="page-footer blue" style="margin-top: 400px;">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text heading">API KeyGen</h5>
+                    <p class="grey-text text-lighten-4">Github Repository, NPM Documentation and other
+                        Links </p>
+                    <p>
+
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text" style="text-decoration: underline;">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/sanyam-2001/API-KeyGen">Github
+                                Repo</a></li>
+                        <li><a class="grey-text text-lighten-3"
+                                href="https://github.com/sanyam-2001/API-KeyGen/blob/main/README.md">NPM Docs</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/sanyam-2001">Github Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2021 MIT License
+                <a class="grey-text text-lighten-4 right showFixed" href="#!">Under Development</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./manage.js"></script>
+</body>
+
+</html>

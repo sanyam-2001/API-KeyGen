@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap');
+html {
+    scroll-behavior: smooth;
+  }
+  
+header{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 20px;
+    width: 80%;
+    margin: auto
+}
+.heading{
+    font-family: 'Krona One', sans-serif;
+    font-size:40px;   
+}
+.w-80{
+    width: 80%;
+    margin: auto;
+}
+.txt, input{
+    font-family: 'Montserrat', sans-serif;
+}
+.appDetails{
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 5%;
+}
+.flex{
+    display: flex;
+}
+.crumb{
+    flex:1;
+    padding: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align:center;
+    border-radius: 10px;
+    justify-content: space-around;
+    font-size: 16px;
+    display: none;
+}
+.key-container{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid black;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.mainContainer{
+    margin-top: 5%;
+}
+.semi{
+    margin-top:5%
+}
+@media only screen and (max-width: 1000px){
+    .appDetails, .key-container{
+        flex-direction: column;
+    }
+    .crumb{
+        margin-top:2.5%;
+        margin-bottom:2.5%
+    }
+    .button{
+        font-size:12px
+    }
+    .actions{
+        display: flex;
+    }
+    .actions button{
+        font-size:10px;
+        margin: 5%;
+    }
+    .w-80{
+        width: 90%;
+    }
+    .heading{
+        font-size:30px
+    }
+    
+}

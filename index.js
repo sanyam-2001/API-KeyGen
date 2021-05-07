@@ -71,6 +71,64 @@ app.get('/generateKey/:ID/:password', (req, res) => {
         })
     }
 })
+app.get('/manage/:appID/:password', (req, res) => {
+    if (!mongoose.Types.ObjectId.isValid(req.params.appID)) res.json({ success: false, message: "Invalid ID", err: "ID" })
+    else {
+        appModel.findOne({ _id: req.params.appID }, (err, result) => {
+            if (err) return console.log(err);
+            else {
+                if (!result) {
+                    res.json({ success: false, message: "Invalid ID", err: "ID" })
+                }
+                else {
+                    if (result.devPassword !== req.params.password) res.json({ success: false, message: "Invalid Password", err: "PW" })
+                    else {
+                        res.json({ success: true, message: "Authenticated" })
+                    }
+                }
+            }
+        })
+    }
+})
+app.get('/getDetails/:appid', (req, res) => {
+    appModel.findOne({ _id: req.params.appid }, (err, returnObject) => {
+        if (err) return console.error(err)
+        else {
+            keyModel.find({ appID: req.params.appid }, (err, keys) => {
+                if (err) return console.error(err);
+                else {
+
+                    const finalObj = {
+                        keys: keys,
+                        details: returnObject
+                    }
+                    res.json(finalObj)
+                }
+            })
+        }
+    })
+})
+app.get('/deleteKey/:keyValue', (req, res) => {
+    keyModel.deleteOne({ key: req.params.keyValue }, (err) => {
+        if (err) return console.error(err);
+        else {
+            res.json({ success: true })
+        }
+    })
+})
+app.get('/addKey/:appID', (req, res) => {
+    const newKey = createKey(32);
+    const newkeyModel = new keyModel({
+        appID: req.params.appID,
+        key: newKey
+    })
+    newkeyModel.save((err, obj) => {
+        if (err) return console.error(err);
+        else {
+            res.json({ success: true, key: obj })
+        }
+    })
+})
 //Default Routes
 app.get('/default', (req, res) => {
     res.send(JSON.stringify({ success: true, code: 200, response: { message: "Server Up and Running" } }));

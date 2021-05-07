@@ -27,6 +27,14 @@ $("#showGenP").on('change', () => {
         $('#genPassword').attr('type', 'password');
     }
 });
+$("#manageShow").on('change', () => {
+    if ($('#managepassword').attr('type') === "password") {
+        $('#managepassword').attr('type', 'text');
+    }
+    else {
+        $('#managepassword').attr('type', 'password');
+    }
+});
 //Create New App
 
 $('#registerbtn').on('click', () => {
@@ -153,4 +161,30 @@ $('#keyGenBtn').on('click', () => {
             })
     }
 
+})
+
+$('#managebtn').on('click', () => {
+    $('.progress-container').fadeIn()
+
+    const email = $('#manageApp').val(), password = $('#managepassword').val();
+    if (email.length < 6 || password.length < 6) {
+        M.toast({ html: "Invalid credentials!" })
+        $('.progress-container').fadeOut()
+    }
+    else {
+        M.toast({ html: "Request processed!" })
+        fetch(`http://localhost:7000/manage/${email}/${password}`)
+            .then(res => res.json())
+            .then(data => {
+                $('.progress-container').fadeOut()
+                if (!data.success) {
+                    M.toast({ html: data.message })
+                }
+                else {
+                    window.open(`./Manage/manage.html?appID=${email}`)
+                    $('#manageApp').val("")
+                    $('#managepassword').val("");
+                }
+            })
+    }
 })
